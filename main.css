@@ -1,0 +1,42 @@
+body {
+    background: #DDD;
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+    max-width: 900px;
+}
+
+.header {
+    height: 70px;
+    background: rgba(255,82,0,1);
+    text-align: center;
+}
+
+.header_icon {
+    color: white;
+    height: 70px;
+    width: 70px;
+	line-height: 70px;
+    text-align: center;
+}
+
+.header_icon>span {
+    font-size: 2.5em;
+    line-height: 70px;
+}
+
+#nav_menu {
+    float: left;
+}
+
+#filter_menu {
+    float: right;
+}
+
+#vertafore-logo {
+    display: inline-block;
+    height: 50px;
+    margin: 10px auto 10px auto;
+}
