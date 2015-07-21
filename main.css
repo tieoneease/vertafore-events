@@ -1,11 +1,17 @@
 body {
     background: #DDD;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
 }
 
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
     max-width: 900px;
+    height: 100%;
 }
 
 .header {
@@ -14,7 +20,7 @@ body {
     text-align: center;
 }
 
-.header_icon {
+.header-icon {
     color: white;
     height: 70px;
     width: 70px;
@@ -22,16 +28,16 @@ body {
     text-align: center;
 }
 
-.header_icon>span {
+.header-icon>span {
     font-size: 2.5em;
     line-height: 70px;
 }
 
-#nav_menu {
+#nav-menu-button {
     float: left;
 }
 
-#filter_menu {
+#filter-menu-button {
     float: right;
 }
 
@@ -39,4 +45,33 @@ body {
     display: inline-block;
     height: 50px;
     margin: 10px auto 10px auto;
+}
+
+.menu {
+    transition-property: all;
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: #CCC;
+    z-index: 2;
+    top: 0;
+    height: 100%;
+    width: 250px;
+}
+
+.menu.nav-closed {
+    left: -250px;
+}
+
+.menu.nav-open {
+    left: 0;
+}
+
+.menu.filter-closed {
+    right: -250px;
+}
+
+.menu.filter-open {
+    right: 0px;
 }

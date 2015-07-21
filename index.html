@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="vertio-ng-app" lang="en">
+<html ng-app="vertafore-events" lang="en">
     <head>
         <title>Vertafore | eVents</title>
         <meta charset="utf-8">
@@ -7,24 +7,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <link href="main.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
     </head>
-    <body>		
+    <body ng-controller="mainCtrl">		
+        <ul id="nav-menu" class="menu" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
+        </ul>
+        
+        <ul id="filter-menu" class="menu" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">
+        </ul>
+        
         <div class="container-fluid">
             
             <div class="header">
-			    <div id="nav_menu" class="header_icon"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+			    <div id="nav-menu-button" class="header-icon" ng-click="toggleNav()"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
 				<img id="vertafore-logo" src="Vertafore-logo.png"> 
-			    <div id="filter_menu" class="header_icon"><span class="glyphicon glyphicon-filter"></span></div>
+			    <div id="filter-menu-button" class="header-icon" ng-click="toggleFilter()"><span class="glyphicon glyphicon-filter"></span></div>
             </div>
-            
             
             <div class="tilewindow">
             </div>
-            
-            
         </div>
     </body>
 </html>
