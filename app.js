@@ -11,16 +11,18 @@ app.run(function($rootScope) {
     });
 });
 
-app.controller('mainCtrl', ["$scope", "$http", function ($scope, $http) {
+app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScope, $scope, $http) {
     $scope.leftOpen = false;
     $scope.rightOpen = false;
     
-    $scope.toggleNav = function() {
+    $scope.toggleNav = function(e) {
         $scope.leftOpen = true;
+        e.stopPropagation();
     };
     
-    $scope.toggleFilter = function() {
+    $scope.toggleFilter = function(e) {
         $scope.rightOpen = true;
+        e.stopPropagation();
     };
     
     $scope.closeMenus = function() {
@@ -28,4 +30,11 @@ app.controller('mainCtrl', ["$scope", "$http", function ($scope, $http) {
         $scope.rightOpen = false;
     };
     
+    $rootScope.$on("escapePressed", _close);
+
+    function _close() {
+        $scope.$apply(function() {
+            $scope.closeMenus();
+        });
+    }
 }]);

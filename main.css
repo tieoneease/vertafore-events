@@ -49,6 +49,8 @@ body {
 
 .menu {
     transition-property: all;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
     position: absolute;
     display: block;
     margin: 0;

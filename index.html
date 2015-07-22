@@ -14,17 +14,20 @@
     </head>
     <body ng-controller="mainCtrl">		
         <ul id="nav-menu" class="menu" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
+            <li>Home</li>
+            <li>Profile</li>
+            <li>Your Events</li>
         </ul>
         
         <ul id="filter-menu" class="menu" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">
         </ul>
         
-        <div class="container-fluid">
+        <div class="container-fluid" ng-click="closeMenus()">
             
             <div class="header">
-			    <div id="nav-menu-button" class="header-icon" ng-click="toggleNav()"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+			    <div id="nav-menu-button" class="header-icon" ng-click="toggleNav($event)"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
 				<img id="vertafore-logo" src="Vertafore-logo.png"> 
-			    <div id="filter-menu-button" class="header-icon" ng-click="toggleFilter()"><span class="glyphicon glyphicon-filter"></span></div>
+			    <div id="filter-menu-button" class="header-icon" ng-click="toggleFilter($event)"><span class="glyphicon glyphicon-filter"></span></div>
             </div>
             
             <div class="tilewindow">
