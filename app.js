@@ -21,6 +21,10 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
     
     $scope.createEvent = function() {
         $scope.newEvent.title = $scope.title;
+        $scope.newEvent.desc = $scope.description;
+        $scope.newEvent.type = $scope.type;
+        $scope.newEvent.date = $scope.date;
+        $scope.newEvent.time = $scope.time;
         $http.post('/createEvent', $scope.newEvent).then(function(res) {
             alert("posted!");
         });

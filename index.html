@@ -33,12 +33,17 @@
             <div ng-repeat="event in events" class="tilewindow">
                 
             </div>
-            <h1>TITLE</h1>
-            <input type="text" ng-model="title">
-            
-            <h1>DESCRIPTION</h1>
-            <input type="text" ng-model="description">
-            
+            <input type="text" ng-model="title" placeholder="Title">
+            <input type="text" ng-model="description" placeholder="Description">
+            <input type="text" ng-model="date" placeholder="Date">
+            <input type="text" ng-model="time" placeholder="Time">
+            <select ng-model="type">
+                    <option value="in_office">In Office</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="sports">Sports</option>
+                    <option value="social">Social</option>
+                    <option value="volunteer">Volunteering</option>
+            </select>
             <button ng-click="createEvent()"></button>
             
         </div>
