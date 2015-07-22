@@ -12,6 +12,21 @@ app.run(function($rootScope) {
 });
 
 app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScope, $scope, $http) {
+    
+    $scope.newEvent = {};
+    
+    $scope.clicked = function() {
+        alert($scope.butt);
+    };
+    
+    $scope.createEvent = function() {
+        $scope.newEvent.title = $scope.title;
+        $http.post('/createEvent', $scope.newEvent).then(function(res) {
+            alert("posted!");
+        });
+    };
+    
+    
     $scope.leftOpen = false;
     $scope.rightOpen = false;
     
