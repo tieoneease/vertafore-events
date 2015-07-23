@@ -13,10 +13,12 @@
         <script type="text/javascript" src="app.js"></script>
     </head>
     <body ng-controller="mainCtrl">		
-        <ul id="nav-menu" class="menu" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
-            <li>Home</li>
-            <li>Profile</li>
-            <li>Your Events</li>
+        <ul id="nav-menu" class="menu menu-items" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
+            <li><span class="glyphicon glyphicon-home">Home</li>
+            <li><span class="glyphicon glyphicon-user">Profile</li>
+            <li><span class="glyphicon glyphicon-calendar">Your Events</li>
+            <li><span class="glyphicon glyphicon-bell">Notification</li>
+            <li><span class="glyphicon glyphicon-map-marker"></span>Location</li>
         </ul>
         
         <ul id="filter-menu" class="menu" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">
@@ -33,12 +35,17 @@
             <div ng-repeat="event in events" class="tilewindow">
                 
             </div>
-            <h1>TITLE</h1>
-            <input type="text" ng-model="title">
-            
-            <h1>DESCRIPTION</h1>
-            <input type="text" ng-model="description">
-            
+            <input type="text" ng-model="title" placeholder="Title">
+            <input type="text" ng-model="description" placeholder="Description">
+            <input type="text" ng-model="date" placeholder="Date">
+            <input type="text" ng-model="time" placeholder="Time">
+            <select ng-model="type">
+                    <option value="in_office">In Office</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="sports">Sports</option>
+                    <option value="social">Social</option>
+                    <option value="volunteer">Volunteering</option>
+            </select>
             <button ng-click="createEvent()"></button>
             
         </div>

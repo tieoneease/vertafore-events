@@ -27,7 +27,11 @@ var authenticatedUser;
 
 var insertEvent = function(db, event, callback) {
     db.collection('events').insertOne( {
-        "title" : event.title
+        "title" : event.title,
+        "description" : event.desc,
+        "type" : event.type,
+        "date" : event.date,
+        "time" : event.time
     }, function(err, result) {
         assert.equal(err, null);
         callback(result);
@@ -71,7 +75,7 @@ app.post("/logout", function (req, res) {
 
 app.post("/createEvent", function (req, res) {
     var event = req.body;
-    console.log("THE OBJECT SHOULD BE: " + req.body.title);
+    console.log("THE OBJECT SHOULD BE: " + req.body.desc);
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
         insertEvent(db, event, function() {
