@@ -1,0 +1,42 @@
+.profile-header {
+    height: 50px;
+    background: rgba(251,80,5,1);
+    margin: auto;
+}
+html, body {
+    height: 100%;
+    background: rgba(251,80,5,1);
+    margin: 0;
+}
+
+#wrapper {
+    min-height: 100%; 
+}
+
+
+.profile-id{  
+  width: 270px;
+  overflow: hidden;
+}
+
+.profile-img{
+  width: 90px;
+  height: 90px;
+  border-radius: 50px;
+  background-image: url('http://a2.mzstatic.com/us/r30/Purple2/v4/b6/98/81/b69881e4-10a1-b85b-a422-00b38fbf0415/mzl.hmrljivf.100x100-75.jpg');
+  background-position: center; 
+  position: relative;
+  z-index: 4;
+/*  left: 45px;  */
+}
+
+.profile-info{
+    border-radius: 20px;
+    border: 5px solid rgba(251, 80, 5, 1);
+    background: #FFFFFF;
+    padding: 10px; 
+    width: 240px;
+    text-align: left;
+/*    height: 150px; */
+    
+}
