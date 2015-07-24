@@ -33,20 +33,27 @@
             </div>
             
             <div ng-repeat="event in events" class="tilewindow">
-                
+                <h3 class="Event-title">
+                    {{event.title}}
+                </h3>
+                <span class="Event-date">{{event.date}}</span>
+                <span class="Event-time">{{event.time}}</span>
+                <div class="Event-desc">
+                    {{event.description}}
+                </div>
             </div>
             <input type="text" ng-model="title" placeholder="Title">
             <input type="text" ng-model="description" placeholder="Description">
             <input type="text" ng-model="date" placeholder="Date">
             <input type="text" ng-model="time" placeholder="Time">
             <select ng-model="type">
-                    <option value="in_office">In Office</option>
+                    <option value="in_office" selected="selected">In Office</option>
                     <option value="gaming">Gaming</option>
                     <option value="sports">Sports</option>
                     <option value="social">Social</option>
                     <option value="volunteer">Volunteering</option>
             </select>
-            <button ng-click="createEvent()"></button>
+            <button ng-click="createEvent()">Create Event</button>
             
         </div>
         <ul id="filter-menu" class="menu menu-items" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">

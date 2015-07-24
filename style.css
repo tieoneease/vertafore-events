@@ -1,0 +1,35 @@
+#fullpage {
+    padding: 0px;
+}
+
+div.header {
+    height: 70px;
+    background: rgba(251,80,5,1);
+    margin: auto;
+}
+
+.header_icon {
+    height: 70px;
+    width: 70px;
+}
+
+div.menu {
+    float: left;
+    background: #ccc;
+    left: 0px;
+}
+
+
+div.add {
+    float: right;
+    background: #ccc;
+    right: 0px;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
