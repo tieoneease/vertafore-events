@@ -109,3 +109,17 @@ body {
     list-style-type: none;
     
 }
+
+input[type=search] { 
+    background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    padding-left: 35px;
+	display: block; 
+	width: 80%; 
+	letter-spacing: 2px; 
+    border: 1px solid #000;
+/*    padding: 4px 12px;*/
+    border-radius: 8px;
+    
+}
+
+
