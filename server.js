@@ -41,6 +41,17 @@ var insertEvent = function(db, event, callback) {
     });
 };
 
+var insertUser = function(db, user, callback) {
+    db.collection('users').insertOne( {
+        "email" : user.email,
+        "name" : user.name,
+        "password" : user.password
+    },function(err, result) {
+        assert.equal(err, null);
+        callback(result);
+    });
+};
+
 /*
 Load all existing events
 */
@@ -58,7 +69,14 @@ var findAllEvents = function(db, callback) {
             callback();   
         }
     });
-};    
+};
+
+var findUser = function(db, user, callback) {
+    db.collection('events').findOne({email : user.email, password : user.password}, function(err, user) {
+        return user;  
+    });
+    
+}
 
 app.get("/", function(req, res) {
     res.status(200);
@@ -76,27 +94,23 @@ app.get("/events", function(req, res) {
     });
 });
 
-
-app.post("/login", function (req, res) {
+//TODO - Login stuff, new user works
+/*app.post("/login", function (req, res) {
     var user = req.body;
 
     console.log("logged in");
-    if (!user || !user.username || !user.password) {
+    if (!user || !user.email || !user.password) {
         res.status(422).send();
     }
-
-    var usernameMatch = _.find(users, function (u) {
-        return u.username === user.username;
+    
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        findUser(db, user, function() {
+            db.close();
+            res.status(200).send(user);
+        });
     });
-
-    if (!usernameMatch || usernameMatch.password !== user.password) {
-        res.status(401).send();
-    } else {
-        authenticatedUser = _.omit(usernameMatch, 'password');
-        res.status(200).send(authenticatedUser);
-
-    }
-});
+});*/
 
 
 app.post("/logout", function (req, res) {
@@ -112,6 +126,18 @@ app.post("/createEvent", function (req, res) {
         assert.equal(null, err);
         insertEvent(db, event, function() {
             db.close();
+        });
+    });
+    res.status(200).send();
+});
+
+app.post("/createUser", function(req, res) {
+    var user = req.body;
+    console.log("what is this: " + user);
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        insertUser(db, user, function() {
+            db.close(); 
         });
     });
     res.status(200).send();

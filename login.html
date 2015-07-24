@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="vertafore-events" lang="en">
 <head>
 	<title>I'm Down</title>
 	<meta charset="utf-8">
@@ -7,8 +7,10 @@
 	<link rel="stylesheet" href="login.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </head>
-<body>   
+<body ng-controller="mainCtrl">   
     <div id="wrapper" class="login-header">  
         <div class="header"></div>
     
@@ -17,23 +19,16 @@
         </center>
 
         <h3>Login</h3>
-        <input type="text" id="username" class="form-control" data-ng-model="login.user.username" placeholder="username">
-        <input type="password" id="password" class="form-control" data-ng-model="login.user.password" placeholder="password">         <br>
-        <button id="login-button" data-ng-click="login.submit()" class="btn btn-success">Login</button>
-        
-        <a href="#newuser" data-position-to="window" data-rel='popup' data-transition="pop"><button id="newuser-button">New User</button></a>
-        <!-- TODO: REST call to GET https://apis.live.net/v5.0/me?access_token=ACCESS_TOKEN to get Outlook Info 
-            Reference: https://msdn.microsoft.com/en-us/library/hh826546.aspx#user_info_rest  -->
+        <input type="text" id="email" class="form-control" ng-model="email" placeholder="email">
+        <input type="password" id="password" class="form-control" ng-model="password" placeholder="password">         
+        <br>
+        <button ng-click="login()">Login</button>
     </div>
-    <div id="newuser">
         <h3>New User</h3>
-        <form>
-            <input type="text" ng-model="email" placeholder="Email">
-            <input type="text" ng-model="name" placeholder="Full Name">
-            <input type="text" ng-model="password" placeholder="Password">
-            <input type="text" ng-model="password2" placeholder="Confirm Password">
-            <button ng-click="createUser()">Create user</button>
-        </form>
-    </div> 
+        <input type="text" ng-model="newemail" placeholder="Email">
+        <input type="text" ng-model="newname" placeholder="Full Name">
+        <input type="password" ng-model="newpassword" placeholder="Password">
+        <input type="password" ng-model="newpassword2" placeholder="Confirm Password">
+        <button ng-click="createUser()">Create user</button>
 </body>
 </html>

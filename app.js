@@ -14,6 +14,8 @@ app.run(function($rootScope) {
 app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScope, $scope, $http) {
     
     $scope.newEvent = {};
+    $scope.newUser = {};
+    $scope.loginUser = {};
     
     $scope.clicked = function() {
         alert($scope.butt);
@@ -30,6 +32,30 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
             alert("posted!");
         });
     };
+    
+    $scope.createUser = function() {
+        if($scope.newpassword != $scope.newpassword2){
+            alert("Passwords Don't Match");   
+        }
+        else {  
+            $scope.newUser.email = $scope.newemail;
+            $scope.newUser.name = $scope.newname;
+            $scope.newUser.password = $scope.newpassword;
+            $http.post('/createUser', $scope.newUser).then(function(res) {
+                alert("user created!");     
+            });
+        }
+    };
+    
+    //TODO - login stuff
+    /*$scope.login = function() {
+        $scope.loginUser.email = $scope.email;
+        $scope.loginUser.password = $scope.password;
+        $http.post('/login', $scope.loginUser).then(function(res) {
+            window.location.href = "/"; 
+        });
+        
+    };*/
     
     $http.get('/events').then(function(res) {
         $scope.events = res.data;
