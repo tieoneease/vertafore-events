@@ -26,11 +26,15 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
         $scope.newEvent.date = $scope.date;
         $scope.newEvent.time = $scope.time;
         $http.post('/createEvent', $scope.newEvent).then(function(res) {
+            //close the popup here
             alert("posted!");
         });
     };
     
-    
+    $http.get('/events').then(function(res) {
+        $scope.events = res.data;
+    });
+                  
     $scope.leftOpen = false;
     $scope.rightOpen = false;
     

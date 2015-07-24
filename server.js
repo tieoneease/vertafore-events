@@ -24,7 +24,10 @@ var users = [
 ];
 
 var authenticatedUser;
-
+var events = {};
+/*
+Insert a new event
+*/
 var insertEvent = function(db, event, callback) {
     db.collection('events').insertOne( {
         "title" : event.title,
@@ -38,10 +41,39 @@ var insertEvent = function(db, event, callback) {
     });
 };
 
+/*
+Load all existing events
+*/
+var findAllEvents = function(db, callback) {
+    var cursor = db.collection('events').find();
+    var count = 0;
+    cursor.each(function(err, doc) {
+        assert.equal(err, null);
+        if(doc != null) {
+            console.dir(doc);
+            events[count] = doc;
+            count += 1;
+        }
+        else {
+            callback();   
+        }
+    });
+};    
 
 app.get("/", function(req, res) {
     res.status(200);
     res.sendfile(__dirname + '/index.html');
+});
+
+app.get("/events", function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        findAllEvents(db, function() {
+            db.close();
+            res.status(200).send(events);
+            events = {};
+        });
+    });
 });
 
 
