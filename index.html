@@ -14,11 +14,11 @@
     </head>
     <body ng-controller="mainCtrl">		
         <ul id="nav-menu" class="menu menu-items" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
-            <li><span class="glyphicon glyphicon-home">Home</li>
-            <li><span class="glyphicon glyphicon-user">Profile</li>
-            <li><span class="glyphicon glyphicon-calendar">Your Events</li>
-            <li><span class="glyphicon glyphicon-bell">Notification</li>
-            <li><span class="glyphicon glyphicon-map-marker"></span>Location</li>
+            <li><span class="glyphicon glyphicon-home"></span> Home</li>
+            <li><span class="glyphicon glyphicon-user"></span><a href="profile.html" data-ajax="false"  style="color:black"> Profile</a></li>
+            <li><span class="glyphicon glyphicon-calendar"></span> Your Events</li>
+            <li><span class="glyphicon glyphicon-bell"></span> Notification</li>
+            <li><span class="glyphicon glyphicon-map-marker"></span> Location</li>
         </ul>
         
         <ul id="filter-menu" class="menu" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">
@@ -49,5 +49,24 @@
             <button ng-click="createEvent()"></button>
             
         </div>
+        <ul id="filter-menu" class="menu menu-items" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">
+            <center><li>Filter By:</li></center>
+            <li> Category</a></li>
+                <ul class="category-filter">
+                    <li>In Office</li>
+                    <li>Gaming</li>
+                    <li>Sports</li>
+                    <li>Social</li>
+                    <li>Volunteering</li>
+                    
+                    </ul>
+        
+        
+            
+            <li> Attendees</a></li>
+            <li> Event Title</a></li>
+            <li> Date Range - Upcoming</a></li>
+            <li> Date Range - Created</a></li>
+        </ul>
     </body>
 </html>
