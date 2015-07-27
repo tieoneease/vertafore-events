@@ -14,11 +14,24 @@
     </head>
     <body ng-controller="mainCtrl">		
         <ul id="nav-menu" class="menu menu-items" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
-            <li><span class="glyphicon glyphicon-home"></span><a href="index.html"> Home</a></li>
+            <li><span class="glyphicon glyphicon-home"></span><a href="index.html" style="color:black"> Home</a></li>
             <li><span class="glyphicon glyphicon-user"></span><a href="profile.html"  style="color:black"> Profile</a></li>
             <li><span class="glyphicon glyphicon-calendar"></span> Your Events</li>
-            <li><span class="glyphicon glyphicon-bell"></span> Notification</li>
-            <li><span class="glyphicon glyphicon-map-marker"></span> Location</li>
+            <li><span class="glyphicon glyphicon-bell"></span> Notifications</li>
+            <li><span class="glyphicon glyphicon-map-marker"></span>
+                <a href="#img1" style="color:black">
+                    Location
+                </a>
+
+                <!-- lightbox container hidden with CSS -->
+                <a href="#_" class="lightbox" id="img1">
+                    <img src="officeLocations.png">
+                </a>
+            </li>
+            
+            
+            
+            <li><span class="glyphicon glyphicon-cog"></span> Settings</li>
             
         </ul>
         
