@@ -46,7 +46,7 @@
 			    <div id="filter-menu-button" class="header-icon" ng-click="toggleFilter($event)"><span class="glyphicon glyphicon-filter"></span></div>
             </div>
             
-            <div ng-repeat="event in events" class="tilewindow">
+            <div ng-repeat="event in events" class="tilewindow eventTiles">
                 <h3 class="Event-title">
                     {{event.title}}
                 </h3>
@@ -71,14 +71,14 @@
             
         </div>
         <ul id="filter-menu" class="menu menu-items" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">
-            <center><li>Filter By:</li></center>
+            <center><li style="letter-spacing: 1px; font-weight: bold"><b>Filter By:</b></li></center>
             <li> Category</a></li>
                 <ul class="category-filter">
-                    <li>In Office</li>
-                    <li>Gaming</li>
-                    <li>Sports</li>
-                    <li>Social</li>
-                    <li>Volunteering</li>
+                    <li><span class="glyphicon glyphicon-briefcase"></span> In Office</li>
+                    <li>&#127918;Gaming</li>
+                    <li>&#9917;Sports</li>
+                    <li><span class="glyphicon glyphicon-glass"></span> Social</li>
+                    <li><span class="glyphicon glyphicon-plus"></span> Volunteering</li>
                 </ul>
             <li>
                 <form>

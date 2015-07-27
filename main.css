@@ -126,7 +126,7 @@ input[type=search] {
 
 
 
-/* LOCATION IMAGE */
+/* Location image pop up */
 .lightbox {
 	/** Default lightbox to hidden */
 	display: none;
@@ -155,4 +155,14 @@ input[type=search] {
 
 	/** Unhide lightbox **/
 	display: block;
+}
+
+.eventTiles {
+    padding-left: 10px;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+    border-bottom-color: rgba(255,82,0,1);
+    border-bottom-width: thin;
+    
+    
 }
