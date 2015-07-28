@@ -65,11 +65,13 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
     $scope.rightOpen = false;
     
     $scope.toggleNav = function(e) {
+        $scope.rightOpen = false;
         $scope.leftOpen = true;
         e.stopPropagation();
     };
     
     $scope.toggleFilter = function(e) {
+        $scope.leftOpen = false;
         $scope.rightOpen = true;
         e.stopPropagation();
     };
@@ -86,4 +88,13 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
             $scope.closeMenus();
         });
     }
+    
+    $scope.goHome = function(e) {
+        window.location = "index.html";
+    }
+    
+    $scope.goProfile = function(e) {
+        window.location = "profile.html";
+    }
+    
 }]);

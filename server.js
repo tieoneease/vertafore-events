@@ -6,7 +6,7 @@ var bodyParser = require("body-parser");
 var _ = require('lodash');
 
 
-var url = 'mongodb://localhost:27017/test2';
+var url = 'mongodb://localhost:27017/test3';
 var app = express();
 
 app.use(express.static(__dirname));

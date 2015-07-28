@@ -14,8 +14,8 @@
     </head>
     <body ng-controller="mainCtrl">		
         <ul id="nav-menu" class="menu menu-items" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
-            <li><span class="glyphicon glyphicon-home"></span><a href="index.html" style="color:black"> Home</a></li>
-            <li><span class="glyphicon glyphicon-user"></span><a href="profile.html"  style="color:black"> Profile</a></li>
+            <li ng-click="goHome()"><span class="glyphicon glyphicon-home"></span> Home</li>
+            <li ng-click="goProfile()"><span class="glyphicon glyphicon-user"></span> Profile</li>
             <li><span class="glyphicon glyphicon-calendar"></span> Your Events</li>
             <li><span class="glyphicon glyphicon-bell"></span> Notifications</li>
             <li><span class="glyphicon glyphicon-map-marker"></span>
@@ -38,6 +38,7 @@
         <ul id="filter-menu" class="menu" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">
         </ul>
         
+        
         <div class="container-fluid" ng-click="closeMenus()">
             
             <div class="header">
@@ -46,16 +47,7 @@
 			    <div id="filter-menu-button" class="header-icon" ng-click="toggleFilter($event)"><span class="glyphicon glyphicon-filter"></span></div>
             </div>
             
-            <div ng-repeat="event in events" class="tilewindow eventTiles">
-                <h3 class="Event-title">
-                    {{event.title}}
-                </h3>
-                <span class="Event-date">{{event.date}}</span>
-                <span class="Event-time">{{event.time}}</span>
-                <div class="Event-desc">
-                    {{event.description}}
-                </div>
-            </div>
+            <div class="new-event-modal">
             <input type="text" ng-model="title" placeholder="Title">
             <input type="text" ng-model="description" placeholder="Description">
             <input type="text" ng-model="date" placeholder="Date">
@@ -68,6 +60,19 @@
                     <option value="volunteer">Volunteering</option>
             </select>
             <button ng-click="createEvent()">Create Event</button>
+            </div>
+            
+            <div ng-repeat="event in events" class="tilewindow eventTiles">
+                <h3 class="Event-title">
+                    {{event.title}}
+                </h3>
+                <span class="Event-date">{{event.date}}</span>
+                <span class="Event-time">{{event.time}}</span>
+                <div class="Event-desc">
+                    {{event.description}}
+                </div>
+            </div>
+            
             
         </div>
         <ul id="filter-menu" class="menu menu-items" ng-class="{ 'filter-open': rightOpen, 'filter-closed': !rightOpen }">

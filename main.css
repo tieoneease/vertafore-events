@@ -15,6 +15,10 @@ body {
     font-family: 'Helvetica', sans-serif;
 }
 
+.new-event-modal {
+    display: inline;
+}
+
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -79,6 +83,14 @@ body {
     width: 250px;
 }
 
+.menu>li:hover {
+    background: rgba(255,82,0,1);
+}
+
+a:link {
+    text-decoration: none;
+}
+
 .menu-items li {
     padding-left: 15px;
 	padding: 10px;
@@ -86,8 +98,9 @@ body {
     border-bottom-width: medium;
     border-bottom-color: rgba(255,82,0,1);
     border-bottom-width: thin;
-    
 }
+
+
 .menu.nav-closed {
     left: -250px;
 }
@@ -143,8 +156,9 @@ input[type=search] {
 }
 
 .lightbox img {
-	/** Pad the lightbox image */
+/*	TODO: fix for pc browser */
 	width: 100%;
+    max-width: 900px;
 	height: auto;
 	margin-top: 50%;
 }
@@ -165,4 +179,22 @@ input[type=search] {
     border-bottom-width: thin;
     
     
+}
+
+.new-event-modal {
+    clear: both;
+    z-index: -1;
+    transition-property: all;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    margin: 50px auto;
+    width: 300px;
+    height: 400px;
+    background: rgba(0,0,0,0);
+    border-radius: 10px;
+}
+
+.new-event-modal-open {
+    z-index: 2;
+    background: rgba(210,210,210,1);
 }
