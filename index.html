@@ -16,6 +16,7 @@
         <ul id="nav-menu" class="menu" ng-class="{ 'nav-open': leftOpen, 'nav-closed': !leftOpen }">
             <li>Home</li>
             <li>Profile</li>
+            <li>New Event</li>
             <li>Your Events</li>
         </ul>
         
@@ -25,21 +26,14 @@
         <div class="container-fluid" ng-click="closeMenus()">
             
             <div class="header">
-			    <div id="nav-menu-button" class="header-icon" ng-click="toggleNav($event)"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+			    <div id="nav-menu-button" class="header-icon" ng-class="{ 'icon-clicked': leftOpen }" ng-click="toggleNav($event)"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
 				<img id="vertafore-logo" src="Vertafore-logo.png"> 
-			    <div id="filter-menu-button" class="header-icon" ng-click="toggleFilter($event)"><span class="glyphicon glyphicon-filter"></span></div>
+			    <div id="filter-menu-button" class="header-icon" ng-click="toggleFilter($event)" ng-class="{ 'icon-clicked': rightOpen }"><span class="glyphicon glyphicon-filter"></span></div>
             </div>
             
             <div ng-repeat="event in events" class="tilewindow">
                 
             </div>
-            <h1>TITLE</h1>
-            <input type="text" ng-model="title">
-            
-            <h1>DESCRIPTION</h1>
-            <input type="text" ng-model="description">
-            
-            <button ng-click="createEvent()"></button>
             
         </div>
     </body>

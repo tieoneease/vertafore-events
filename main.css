@@ -1,5 +1,5 @@
 body {
-    background: #DDD;
+    background: #EEE;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -12,6 +12,8 @@ body {
     padding-right: 0px;
     max-width: 900px;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .header {
@@ -26,6 +28,10 @@ body {
     width: 70px;
 	line-height: 70px;
     text-align: center;
+}
+
+.icon-clicked {
+    background: #FF7000;
 }
 
 .header-icon>span {
@@ -51,19 +57,23 @@ body {
     transition-property: all;
     transition-duration: 600ms;
     transition-timing-function: ease;
-    position: absolute;
+    position: fixed;
     display: block;
     margin: 0;
     padding: 0;
-    background: #CCC;
+    background: #999;
     z-index: 2;
     top: 0;
     height: 100%;
-    width: 250px;
+    width: 200px;
+}
+
+.menu>li {
+    line-height: 40px;
 }
 
 .menu.nav-closed {
-    left: -250px;
+    left: -200px;
 }
 
 .menu.nav-open {
@@ -71,7 +81,7 @@ body {
 }
 
 .menu.filter-closed {
-    right: -250px;
+    right: -200px;
 }
 
 .menu.filter-open {

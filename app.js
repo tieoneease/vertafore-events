@@ -26,16 +26,17 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
         });
     };
     
-    
     $scope.leftOpen = false;
     $scope.rightOpen = false;
     
     $scope.toggleNav = function(e) {
+        $scope.rightOpen = false;
         $scope.leftOpen = true;
         e.stopPropagation();
     };
     
     $scope.toggleFilter = function(e) {
+        $scope.leftOpen = false;
         $scope.rightOpen = true;
         e.stopPropagation();
     };
