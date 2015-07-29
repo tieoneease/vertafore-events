@@ -16,12 +16,31 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
     $scope.leftOpen = false;
     $scope.rightOpen = false;
     $scope.modalOpen = false;
+    $scope.eventInfoModalOpen = false;
+    $scope.showLocations = false;
+    
+    
+    $scope.currentEvent = {};
     
     $scope.typefield = "office";
     
     $http.get('/events').then(function(res) {
         $scope.events = res.data;
     });
+    
+    $scope.goHome = function(e) {
+        window.location = "index.html";
+    }
+    
+    $scope.goProfile = function(e) {
+        window.location = "profile.html";
+    }
+    
+    $scope.showLocationsImage = function(e) {
+        $scope.showLocations = true;
+        $scope.closeMenus();
+    }
+    
     
     $scope.cancelEvent = function() {
         $scope.titlefield = "";
@@ -32,14 +51,18 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
     };
     
     $scope.createEvent = function(e) {
+        var fromDate = (new Date($scope.fromfield)).toLocaleString();
+        var toDate = (new Date($scope.tofield)).toLocaleString();
         var newEvent = {
             title: $scope.titlefield,
             desc: $scope.descfield,
             location: $scope.locationfield,
             type: $scope.typefield,
-            from: $scope.fromfield,
-            to: $scope.tofield
+            from: fromDate,
+            to: toDate
         }
+        
+        
         $http.post('/createEvent', newEvent).then(function(res) {
             $http.get('/events').then(function(res) {
                 $scope.events = res.data;
@@ -82,7 +105,12 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
         $scope.rightOpen = false;
         $scope.modalOpen = true;
         e.stopPropagation();
-    }
+    };
+    
+    $scope.showEventInfo = function(event) {
+        $scope.eventInfoModalOpen = true;
+        $scope.currentEvent = event; 
+    };
     
     
     $scope.closeMenus = function() {
@@ -95,11 +123,13 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
         $scope.closeMenus();
     };
     
+    
     $rootScope.$on("escapePressed", _close);
 
     function _close() {
         $scope.$apply(function() {
             $scope.modalOpen = false;
+            $scope.eventInfoModalOpen = false;
             $scope.closeMenus();
         });
     }

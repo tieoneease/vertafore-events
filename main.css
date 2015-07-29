@@ -177,6 +177,15 @@ body {
     margin: 15px;
 }
 
+.event-info-modal {
+    background: rgba(200,200,200,1);
+}
+
+.event-info-modal-open {
+    visibility: visible;
+    z-index: 15;
+    background: rgba(200,200,200,1);
+}
 
 .tile-window {
     height: 100%;
@@ -204,4 +213,8 @@ input[type=search] {
 	letter-spacing: 2px; 
     border: 1px solid #000;
     border-radius: 8px;
+}
+
+#office-locations-image {
+    width: 100%;
 }
