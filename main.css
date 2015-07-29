@@ -1,10 +1,23 @@
+@font-face {
+    font-family: Helvetica;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/164210/HelveticaNeue-UltraLight.otf) format('TrueType');
+    font-weight: 300;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+li {
+    list-style-type: none;
+}
+
 body {
-    background: #EEE;
+    background: #FFF;
     position: absolute;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
+    font-family: 'Helvetica', sans-serif;
 }
 
 .container-fluid {
@@ -13,7 +26,6 @@ body {
     max-width: 900px;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 .header {
@@ -54,6 +66,7 @@ body {
 }
 
 .menu {
+    vertical-align: middle;
     transition-property: all;
     transition-duration: 600ms;
     transition-timing-function: ease;
@@ -61,19 +74,33 @@ body {
     display: block;
     margin: 0;
     padding: 0;
-    background: #999;
     z-index: 2;
     top: 0;
     height: 100%;
-    width: 200px;
+    width: 230px;
+    background: white;
 }
 
 .menu>li {
-    line-height: 40px;
+    color: black;
+    padding: 10px;
+    width: 100%;
+    line-height: 20px;
+    text-align: left;
+    padding-left: 15px;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+    border-bottom-color: rgba(255,82,0,1);
+    border-bottom-width: thin;
+    font-size: 1.5em;
+}
+
+.menu>li:hover {
+    background: rgba(255,82,0,1);
 }
 
 .menu.nav-closed {
-    left: -200px;
+    left: -230px;
 }
 
 .menu.nav-open {
@@ -81,9 +108,95 @@ body {
 }
 
 .menu.filter-closed {
-    right: -200px;
+    right: -230px;
 }
 
 .menu.filter-open {
     right: 0px;
+}
+
+.overlay-wrapper {
+    position: relative;
+    height: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.new-event-modal {
+    display: inline-block;
+    visibility: hidden;
+    transition-property: all;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    width: 300px;
+    height: 430px;
+    background: rgba(0,0,0,0);
+    border-radius: 10px;
+    margin: 25px auto;
+    align-content: center;
+}
+
+.new-event-modal-open {
+    visibility: visible;
+    z-index: 15;
+    background: rgba(200,200,200,1);
+}
+
+.new-event-modal * {
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+}
+
+.new-event-modal-open * {
+    opacity: 1;
+}
+
+.new-event-modal>input {
+    padding: 5px;
+    margin: 2px;
+    height: 40px;
+    width: 250px;
+    display: inline-block;
+}
+
+.new-event-modal>select {
+    padding: 5px;
+    margin: 2px;
+    height: 40px;
+    width: 250px;
+}
+
+.new-event-modal>button {
+    margin: 15px;
+}
+
+
+.tile-window {
+    height: 100%;
+}
+
+.event-tile {
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+    border-bottom-color: rgba(255,82,0,1);
+    border-bottom-width: thin;
+    vertical-align: middle;
+    font-size: 1.5em;
+}
+
+.event-tile>h3 {
+    margin: 15px;
+}
+
+
+input[type=search] { 
+    background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    padding-left: 35px;
+	display: block; 
+	width: 80%; 
+	letter-spacing: 2px; 
+    border: 1px solid #000;
+    border-radius: 8px;
 }

@@ -6,7 +6,7 @@ var bodyParser = require("body-parser");
 var _ = require('lodash');
 
 
-var url = 'mongodb://localhost:27017/test2';
+var url = 'mongodb://localhost:27017/test';
 var app = express();
 
 app.use(express.static(__dirname));
@@ -24,16 +24,50 @@ var users = [
 ];
 
 var authenticatedUser;
+var events = [];
+
 
 var insertEvent = function(db, event, callback) {
     db.collection('events').insertOne( {
-        "title" : event.title
+        "title" : event.title,
+        "description" : event.desc,
+        "location" : event.location,
+        "type" : event.type,
+        "from" : event.from,
+        "to" : event.to
     }, function(err, result) {
         assert.equal(err, null);
         callback(result);
     });
 };
 
+var findAllEvents = function(db, callback) {
+    var cursor = db.collection('events').find();
+    var count = 0;
+    cursor.each(function(err, doc) {
+        assert.equal(err, null);
+        if(doc != null) {
+            console.dir(doc);
+            events[count] = doc;
+            count += 1;
+        }
+        else {
+            callback();   
+        }
+    });
+};
+
+
+var insertUser = function(db, user, callback) {
+    db.collection('users').insertOne( {
+        "email" : user.email,
+        "name" : user.name,
+        "password" : user.password
+    },function(err, result) {
+        assert.equal(err, null);
+        callback(result);
+    });
+};
 
 app.get("/", function(req, res) {
     res.status(200);
@@ -81,6 +115,16 @@ app.post("/createEvent", function (req, res) {
     res.status(200).send();
 });
 
+app.get("/events", function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        findAllEvents(db, function() {
+            db.close();
+            res.status(200).send(events);
+            events = {};
+        });
+    });
+});
 
 app.get("/users/current", function (req, res) {
     if (authenticatedUser) {
