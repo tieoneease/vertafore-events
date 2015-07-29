@@ -17,7 +17,6 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
     $scope.rightOpen = false;
     $scope.modalOpen = false;
     
-    
     $scope.typefield = "office";
     
     $http.get('/events').then(function(res) {
@@ -84,6 +83,7 @@ app.controller('mainCtrl', ["$rootScope", "$scope", "$http", function ($rootScop
         $scope.modalOpen = true;
         e.stopPropagation();
     }
+    
     
     $scope.closeMenus = function() {
         $scope.leftOpen = false;

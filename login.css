@@ -1,0 +1,42 @@
+html, body {
+    height: 100%;
+    background: rgba(251,80,5,1);
+    margin: 0;
+}
+
+div.header {
+    height: 70px;
+    background: rgba(251,80,5,1);
+    margin: auto;
+}
+
+
+#wrapper {
+    min-height: 100%; 
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background: rgba(251,80,5,1) !important;    
+}
+
+#newuser-button{
+    float: right;
+}
+
+.ui-btn {
+    width: 120px !important;   
+}
+
+#login-button{
+    display: inline;   
+}
+
+#newuser{
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+}
+
+#newuser-submit{
+    font-size: 12px;   
+}
